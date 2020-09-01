@@ -1,1 +1,10 @@
-<p>todo-item works!</p>
+<div class="todo-item">
+  <span>{{ todo?.title }}</span>
+  <input
+    type="checkbox"
+    name="{{ todo?.id }}"
+    id="{{ todo?.id }}"
+    value="{{ todo?.id }}"
+    [checked]="todo?.completed"
+  />
+</div>

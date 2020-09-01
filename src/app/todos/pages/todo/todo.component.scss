@@ -1,0 +1,25 @@
+.back-link {
+  color: white;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.mb-5 {
+  margin-bottom: 30px;
+}
+
+.container {
+  margin: 20px;
+}
+
+.todos {
+  display: grid;
+  word-break: break-all;
+  gap: 10px;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(2, 1fr);
+
+  .todo-item {
+    background-color: azure;
+  }
+}

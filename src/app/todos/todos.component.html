@@ -1,1 +1,5 @@
-<p>todos works!</p>
+<div class="grid-container">
+  <div class="grid-item" *ngFor="let todo of todos" [routerLink]="[ '/todos', todo.id ]">
+    <h2>{{ todo.title }}</h2>
+  </div>
+</div>

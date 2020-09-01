@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
   selector: 'app-todo-item',
@@ -8,9 +8,17 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class TodoItemComponent implements OnInit {
 
+  @Input() todo: Todo | undefined;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+}
+
+export interface Todo {
+  id: number;
+  title: string;
+  completed: boolean;
 }
