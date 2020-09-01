@@ -1,0 +1,30 @@
+<mat-toolbar class="mb-5">
+  <div>
+    <a
+      class="back-link"
+      [routerLink]="['/todos']"
+      routerLinkActive="router-link-active"
+    >
+      <mat-icon>arrow_back</mat-icon>
+      Back
+    </a>
+  </div>
+</mat-toolbar>
+<div class="container">
+  <mat-card class="mb-5" [formGroup]="todoFormGroup">
+    <mat-card-header>
+      <mat-card-title>New Todo</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <input formControlName="todoFormControl" matInput placeholder="Enter New Todo" (keyup.enter) = "onNewTodo()" required/>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button [color]="'accent'" (click) = "onNewTodo()" [disabled]= "todoFormGroup.invalid">Create</button>
+    </mat-card-actions>
+  </mat-card>
+  <div class="todos">
+    <app-todo-item *ngFor="let todo of todos" [todo]="todo"></app-todo-item>
+  </div>
+</div>
