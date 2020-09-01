@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1598864293006,
+  "timestamp": 1598972548848,
   "index": "/Angular-Redux-Todo/index.html",
   "assetGroups": [
     {
@@ -11,12 +11,13 @@
         "ignoreVary": true
       },
       "urls": [
+        "/Angular-Redux-Todo/4.df1b401d9a48e2fbc1f7.js",
         "/Angular-Redux-Todo/favicon.ico",
         "/Angular-Redux-Todo/index.html",
-        "/Angular-Redux-Todo/main.2b397d0b0ae4e6814a83.js",
+        "/Angular-Redux-Todo/main.c7f6e37b6014f57a0a40.js",
         "/Angular-Redux-Todo/manifest.webmanifest",
         "/Angular-Redux-Todo/polyfills.a4021de53358bb0fec14.js",
-        "/Angular-Redux-Todo/runtime.e227d1a0e31cbccbf8ec.js",
+        "/Angular-Redux-Todo/runtime.4b7f5ae711f1ca3b6784.js",
         "/Angular-Redux-Todo/styles.07ad0aa4a54bf05b1222.css"
       ],
       "patterns": []
@@ -43,6 +44,7 @@
   ],
   "dataGroups": [],
   "hashTable": {
+    "/Angular-Redux-Todo/4.df1b401d9a48e2fbc1f7.js": "2690bd38609d4de1e93b3f0ef845da7c118388b2",
     "/Angular-Redux-Todo/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "/Angular-Redux-Todo/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
     "/Angular-Redux-Todo/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
@@ -52,11 +54,11 @@
     "/Angular-Redux-Todo/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "/Angular-Redux-Todo/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "/Angular-Redux-Todo/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/Angular-Redux-Todo/index.html": "c00f6e5a2d7be720fdad41842cb2331f6db42a5d",
-    "/Angular-Redux-Todo/main.2b397d0b0ae4e6814a83.js": "59724aeccb6c1f0164fc6d16c408c252f65be9df",
+    "/Angular-Redux-Todo/index.html": "6220352c3942318c974620b5263c77dd03b1d347",
+    "/Angular-Redux-Todo/main.c7f6e37b6014f57a0a40.js": "5d50d3c36d70edda5d710e8f77e7165faac167d9",
     "/Angular-Redux-Todo/manifest.webmanifest": "527f956a61853d9fa59a7e1ec542811509b1c64a",
     "/Angular-Redux-Todo/polyfills.a4021de53358bb0fec14.js": "b47435a9ef2a4829f2f9dfd35599bde3614981b1",
-    "/Angular-Redux-Todo/runtime.e227d1a0e31cbccbf8ec.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/Angular-Redux-Todo/runtime.4b7f5ae711f1ca3b6784.js": "75c8f7eacdd0319b89bd2432dccd62256ed97ae8",
     "/Angular-Redux-Todo/styles.07ad0aa4a54bf05b1222.css": "9348cf1b204022ed1ea8d39802f3290cdf6f1830"
   },
   "navigationUrls": [
