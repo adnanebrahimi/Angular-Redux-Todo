@@ -1,4 +1,4 @@
-import { TodoModel } from '../models/todo.model';
+import { Todo } from '../models/todo.model';
 
 export enum TodoActionTypes {
   AddNewTodo = '[Todo Page] Add New Todo',
@@ -11,12 +11,12 @@ export enum TodoActionTypes {
 
 export class AddNewTodo {
   static readonly type = TodoActionTypes.AddNewTodo;
-  constructor(public todo: TodoModel) {}
+  constructor(public title: string) {}
 }
 
 export class UpdateTodo {
   static readonly type = TodoActionTypes.UpdateTodoItem;
-  constructor(public title: string) {}
+  constructor(public title: string, public id: number) {}
 }
 
 export class DeleteTodo {

@@ -10,6 +10,8 @@ import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { HttpClientModule } from '@angular/common/http';
+import { TodoState } from './state/todo.state';
+import { ListState } from './state/list.state';
 
 @NgModule({
   declarations: [
