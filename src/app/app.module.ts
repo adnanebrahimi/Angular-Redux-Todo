@@ -9,6 +9,7 @@ import { environment } from '../environments/environment';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,9 +19,13 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     NgxsReduxDevtoolsPluginModule.forRoot(),
-    NgxsModule.forRoot([], {
+    NgxsModule.forRoot([
+      TodoState,
+      ListState
+    ], {
       developmentMode: !environment.production
     }),
     NgxsLoggerPluginModule.forRoot()
