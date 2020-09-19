@@ -8,7 +8,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { TemplateModule } from '@rx-angular/template';
 import { RxState } from '@rx-angular/state';
-import { GLOBAL_RX_STATE, GlobalState } from './core/states/global.state';
+import { GLOBAL_RX_STATE, GlobalState } from './states/global.state';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,16 +17,17 @@ import { GLOBAL_RX_STATE, GlobalState } from './core/states/global.state';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
+      enabled: environment.production
     }),
     TemplateModule,
   ],
   providers: [
     {
       provide: GLOBAL_RX_STATE,
-      useFactory: () => new RxState<GlobalState>(),
-    },
+      useFactory: () => new RxState<GlobalState>()
+    }
   ],
   bootstrap: [AppComponent],
 })

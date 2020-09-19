@@ -25,6 +25,6 @@
     </mat-card-actions>
   </mat-card>
   <div class="todos">
-    <app-todo-item *ngFor="let todo of todos" [todo]="todo"></app-todo-item>
+    <app-todo-item *ngFor="let todo of todos$ | async" [todo]="todo"></app-todo-item>
   </div>
 </div>

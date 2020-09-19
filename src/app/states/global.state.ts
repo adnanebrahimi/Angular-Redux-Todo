@@ -1,14 +1,11 @@
 import { InjectionToken } from '@angular/core';
 import { RxState } from '@rx-angular/state';
+import { Todo } from '../models';
 
-export interface Task {
-  id: number;
-  label: string;
-  done: boolean;
-}
+
 
 export interface GlobalState {
-  tasks: Task[];
+  todos: Todo[];
 }
 
 export const GLOBAL_RX_STATE = new InjectionToken<RxState<GlobalState>>(
