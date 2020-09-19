@@ -8,13 +8,12 @@ import { TodoService } from './services/todo.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent extends RxState<GlobalState> {
+export class AppComponent {
   title = 'AngularReduxTodo';
   constructor(
     @Inject(GLOBAL_RX_STATE) private globalState: RxState<GlobalState>,
     private todoService: TodoService
   ) {
-    super();
-    this.connect('todos', this.todoService.getAllTodo() );
+    this.globalState.connect('todos', this.todoService.getAllTodo() );
   }
 }

@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RxState } from '@rx-angular/state';
 import { Todo } from 'src/app/models';
+import { TodoService } from 'src/app/services/todo.service';
 import { GlobalState, GLOBAL_RX_STATE } from 'src/app/states/global.state';
 
 export interface TodoState {
@@ -14,17 +15,19 @@ export interface TodoState {
 })
 export class TodoComponent extends RxState<TodoState> implements OnInit {
   todoFormGroup: FormGroup;
-  readonly todos$ = this.globalState.select('todos');
+  readonly todos$ = this.select('todos');
 
   constructor(
     @Inject(GLOBAL_RX_STATE) private globalState: RxState<GlobalState>,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private todoService: TodoService
   ) {
     super();
     this.todoFormGroup = new FormGroup({
       todoFormControl: new FormControl('', Validators.required),
     });
-    // this.connect('todos', this.globalState.select('todos'));
+    this.connect('todos', this.globalState.select('todos'));
+    // this.connect('todos', this.todoService.getAllTodo());
   }
 
   ngOnInit(): void {

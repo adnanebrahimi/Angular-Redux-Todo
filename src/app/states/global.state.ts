@@ -11,3 +11,4 @@ export interface GlobalState {
 export const GLOBAL_RX_STATE = new InjectionToken<RxState<GlobalState>>(
   'GLOBAL_RX_STATE'
 );
+
