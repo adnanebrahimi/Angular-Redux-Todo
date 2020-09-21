@@ -25,6 +25,7 @@
     "@angular/service-worker": "~10.0.9",
     "@rx-angular/state": "^1.4.1",
     "@rx-angular/template": "^1.0.0-alpha.6",
+    "rx-query": "0.0.9",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
