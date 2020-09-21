@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 export class TodoService {
   constructor(private httpClient: HttpClient) {}
 
-  createTodo(title: string): Observable<Todo> {
+  createTodo(titleTodo: string): Observable<Todo> {
     const url = 'https://jsonplaceholder.typicode.com/todos';
     const formData = new FormData();
     /**
@@ -21,14 +21,14 @@ export class TodoService {
     */
 
     formData.append('UserId', Math.random().toString().substring(1, 3));
-    formData.append('title', title);
+    formData.append('title', titleTodo);
     formData.append('completed', 'false');
     return this.httpClient.post<Todo>(url, formData).pipe(
       map((respond) => {
         return {
           id: respond.id,
           userId: Number(formData.get('UserId')),
-          title: String(formData.get('title')?.toString()).toString(),
+          title: titleTodo,
           listId: 1,
           completed: Boolean(formData.get('completed')),
         };

@@ -47,7 +47,7 @@ export class TodoComponent implements OnInit {
 
   onNewTodo(): void {
     if (this.todoFormGroup.controls.todoFormControl.value?.length > 0) {
-      this.store.dispatch(this.store.dispatch(new AddNewTodo(this.todoFormGroup.controls.todoFormControl.value)));
+      this.store.dispatch(new AddNewTodo(this.todoFormGroup.controls.todoFormControl.value));
       /* this.todos.unshift({
         id: ++this.todos[0].id,
         title: this.todoFormGroup.controls.todoFormControl.value,
