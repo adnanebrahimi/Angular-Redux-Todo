@@ -56,6 +56,7 @@ export class TodoService {
   }
 
   getAllTodo(): Observable<Todo[]> {
+
     const url = 'https://jsonplaceholder.typicode.com/todos';
     return this.httpClient.get<Todo[]>(url);
   }

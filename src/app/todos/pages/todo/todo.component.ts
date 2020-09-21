@@ -1,13 +1,13 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RxState } from '@rx-angular/state';
 import { Todo, List } from 'src/app/models';
 import { TodoService } from 'src/app/services/todo.service';
 import { GlobalState, GLOBAL_RX_STATE } from 'src/app/states/global.state';
-import { Subject } from 'rxjs';
-import { global } from '@angular/compiler/src/util';
+import { query, QueryOutput } from 'rx-query';
+import { config, Observable, Subject } from 'rxjs';
 
 export interface TodoState {
   todos: Todo[];
@@ -21,6 +21,8 @@ export class TodoComponent extends RxState<TodoState> implements OnInit {
   todoFormGroup: FormGroup;
   readonly todos$ = this.select('todos');
   newTodoBtn$ = new Subject();
+  public rxTodoRequest$ = new Observable<QueryOutput<Todo[]>>();
+
 
   constructor(
     @Inject(GLOBAL_RX_STATE) private globalState: RxState<GlobalState>,
@@ -66,5 +68,17 @@ export class TodoComponent extends RxState<TodoState> implements OnInit {
         duration: 1500,
       });
     }
+  }
+
+  reload(): void {
+    this.globalState.set({todos: []});
+    this.rxTodoRequest$ = query('heroes-list', () => this.todoService.getAllTodo());
+    // TODO: The type 'readonly Todo[]' is 'readonly' and cannot be assigned to the mutable type 'Todo[]'.
+   // this.globalState.connect('todos', this.rxTodoRequest$.pipe(map((result) => result.data!)));
+    // TODO: Type 'readonly Todo[] | undefined' is not assignable to type 'Todo[]'.
+   // this.globalState.connect('todos', this.rxTodoRequest$.pipe(map((result) => result.data)));
+    // TODO: Works without typing issue
+    this.globalState.connect('todos', this.todoService.getAllTodo());
+
   }
 }

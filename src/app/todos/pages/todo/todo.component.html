@@ -9,6 +9,12 @@
       Back
     </a>
   </div>
+  <div class="spacer"></div>
+  <div>
+    <button mat-icon-button (click)="reload()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </div>
 </mat-toolbar>
 <div class="container">
   <mat-card class="mb-5" [formGroup]="todoFormGroup">
@@ -17,14 +23,42 @@
     </mat-card-header>
     <mat-card-content>
       <mat-form-field>
-        <input formControlName="todoFormControl" matInput placeholder="Enter New Todo" (keyup.enter) = "this.onNewTodo()" required/>
+        <input
+          formControlName="todoFormControl"
+          matInput
+          placeholder="Enter New Todo"
+          (keyup.enter)="this.onNewTodo()"
+          required
+        />
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button [color]="'accent'" (click) = "this.onNewTodo()" [disabled]= "todoFormGroup.invalid">Create</button>
+      <button
+        mat-raised-button
+        [color]="'accent'"
+        (click)="this.onNewTodo()"
+        [disabled]="todoFormGroup.invalid"
+      >
+        Create
+      </button>
     </mat-card-actions>
   </mat-card>
-  <div class="todos">
-    <app-todo-item *ngFor="let todo of todos$ | async" [todo]="todo"></app-todo-item>
+  <div *ngIf="rxTodoRequest$ | async as rxTodo">
+    <ng-container [ngSwitch]="rxTodo.status">
+      <div *ngSwitchDefault class="todos">
+        <app-todo-item
+
+        *ngFor="let todo of todos$ | async"
+        [todo]="todo"
+      ></app-todo-item>
+      </div>
+
+
+      <div *ngSwitchCase="'loading'">Loading ...</div>
+      <div *ngSwitchCase="'error'">Error ({{rxTodo.error}})</div>
+    </ng-container>
   </div>
 </div>
+
+
+
