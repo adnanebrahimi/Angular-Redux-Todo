@@ -72,7 +72,7 @@ export class TodoComponent extends RxState<TodoState> implements OnInit {
 
   reload(): void {
     this.globalState.set({todos: []});
-    this.rxTodoRequest$ = query('heroes-list', () => this.todoService.getAllTodo());
+    this.rxTodoRequest$ = query('todo-list', () => this.todoService.getAllTodo());
     // TODO: The type 'readonly Todo[]' is 'readonly' and cannot be assigned to the mutable type 'Todo[]'.
    // this.globalState.connect('todos', this.rxTodoRequest$.pipe(map((result) => result.data!)));
     // TODO: Type 'readonly Todo[] | undefined' is not assignable to type 'Todo[]'.
