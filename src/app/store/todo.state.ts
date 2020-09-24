@@ -5,10 +5,11 @@ import {
   DeleteTodo,
   UpdateTodo,
   GetAllTodo,
-} from '../actions/todo.actions';
+} from './todo.actions';
 import { Todo } from '../models/todo.model';
 import { tap } from 'rxjs/operators';
 import { TodoService } from '../services/todo.service';
+import { Observable } from 'rxjs';
 
 export class TodoStateModel {
   public todos: Todo[] = [];
@@ -26,12 +27,12 @@ export class TodoState {
 
 
   @Selector()
-  static todos(state: TodoStateModel) {
+  static todos(state: TodoStateModel): Todo[] {
     return state.todos;
   }
 
   @Action(AddNewTodo)
-  addTodo(ctx: StateContext<TodoStateModel>, title: string) {
+  addTodo(ctx: StateContext<TodoStateModel>, title: string): Observable<Todo> {
     return this.todoService.createTodo(title).pipe(
       tap((newTodo) => {
         const state = ctx.getState();
@@ -41,7 +42,7 @@ export class TodoState {
   }
 
   @Action(UpdateTodo)
-  updateTodo(ctx: StateContext<TodoStateModel>, id: number, title: string) {
+  updateTodo(ctx: StateContext<TodoStateModel>, id: number, title: string): Observable<Todo> {
     return this.todoService.editTodoTitle(id , title).pipe(
       tap((newTodo) => {
         const state = ctx.getState();
@@ -51,7 +52,7 @@ export class TodoState {
   }
 
   @Action(GetAllTodo)
-  getAllTodos(ctx: StateContext<TodoStateModel>) {
+  getAllTodos(ctx: StateContext<TodoStateModel>): Observable<Todo[]> {
     return this.todoService.getAllTodo().pipe(
       tap((allTodos) => {
         const state = ctx.getState();

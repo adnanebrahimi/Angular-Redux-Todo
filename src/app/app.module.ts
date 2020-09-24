@@ -10,8 +10,7 @@ import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { HttpClientModule } from '@angular/common/http';
-import { TodoState } from './state/todo.state';
-import { ListState } from './state/list.state';
+import { TodoState } from './store/todo.state';
 
 @NgModule({
   declarations: [
@@ -25,8 +24,7 @@ import { ListState } from './state/list.state';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsModule.forRoot([
-      TodoState,
-      ListState
+      TodoState
     ], {
       developmentMode: !environment.production
     }),
