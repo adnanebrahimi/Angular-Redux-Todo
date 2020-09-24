@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { RxState } from '@rx-angular/state';
 import { Todo, List } from 'src/app/models';
 import { TodoService } from 'src/app/services/todo.service';
-import { GlobalState, GLOBAL_RX_STATE } from 'src/app/states/global.state';
+import { GlobalState, GLOBAL_RX_STATE } from 'src/app/store/global.state';
 import { query, QueryOutput } from 'rx-query';
 import { config, Observable, Subject } from 'rxjs';
 

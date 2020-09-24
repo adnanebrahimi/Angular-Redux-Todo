@@ -8,7 +8,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { TemplateModule } from '@rx-angular/template';
 import { RxState } from '@rx-angular/state';
-import { GLOBAL_RX_STATE, GlobalState } from './states/global.state';
+import { GLOBAL_RX_STATE, GlobalState } from './store/global.state';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
