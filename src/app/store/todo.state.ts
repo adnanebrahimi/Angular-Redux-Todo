@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
 import { State, Action, StateContext, Selector } from '@ngxs/store';
-import {
-  AddNewTodo,
-  DeleteTodo,
-  UpdateTodo,
-  GetAllTodo,
-} from './todo.actions';
+import { AddNewTodo, GetAllTodo } from './todo.actions';
 import { Todo } from '../models/todo.model';
 import { tap } from 'rxjs/operators';
 import { TodoService } from '../services/todo.service';
@@ -25,7 +20,6 @@ export class TodoStateModel {
 export class TodoState {
   constructor(private todoService: TodoService) {}
 
-
   @Selector()
   static todos(state: TodoStateModel): Todo[] {
     return state.todos;
@@ -41,22 +35,12 @@ export class TodoState {
     );
   }
 
-  @Action(UpdateTodo)
-  updateTodo(ctx: StateContext<TodoStateModel>, id: number, title: string): Observable<Todo> {
-    return this.todoService.editTodoTitle(id , title).pipe(
-      tap((newTodo) => {
-        const state = ctx.getState();
-        ctx.setState({ ...state, todos: [...state.todos, newTodo] });
-      })
-    );
-  }
-
   @Action(GetAllTodo)
   getAllTodos(ctx: StateContext<TodoStateModel>): Observable<Todo[]> {
     return this.todoService.getAllTodo().pipe(
       tap((allTodos) => {
         const state = ctx.getState();
-        ctx.setState({ ...state, todos: allTodos});
+        ctx.setState({ ...state, todos: allTodos });
       })
     );
   }
