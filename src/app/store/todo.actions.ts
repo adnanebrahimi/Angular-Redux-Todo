@@ -1,5 +1,3 @@
-import { Todo } from '../models/todo.model';
-
 export enum TodoActionTypes {
   AddNewTodo = '[Todo Page] Add New Todo',
   ToggleTodoItem = '[Todo Page] Toggle Todo Item',
